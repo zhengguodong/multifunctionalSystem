@@ -12,8 +12,8 @@
                     <el-icon><location /></el-icon>
                     <span>Navigator One</span>
                 </template>
-                <el-menu-item index="1-1" @click="goToTest">item one</el-menu-item>
-                <el-menu-item index="1-3">item three</el-menu-item>
+                <el-menu-item index="1-1" @click="goToShowdata">首页</el-menu-item>
+                <el-menu-item index="1-3" @click="goToTest">展示台</el-menu-item>
             </el-sub-menu>
             <el-menu-item index="2">
                 <el-icon><icon-menu /></el-icon>
@@ -40,6 +40,9 @@ import {
 } from '@element-plus/icons-vue'
 import {useRouter} from "vue-router"
     let router=useRouter()
+    let goToShowdata=()=>{
+        router.push("/showdata")
+    }
     let goToTest=()=>{
         router.push("/test")
     }

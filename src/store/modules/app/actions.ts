@@ -3,7 +3,6 @@
 // Action 可以包含任意异步操作。
 import { ActionTree, ActionContext } from 'vuex'
 
-// eslint-disable-next-line import/no-cycle
 import { RootState } from '@/store'
 import { AppState } from './state'
 import { Mutations } from './mutations'

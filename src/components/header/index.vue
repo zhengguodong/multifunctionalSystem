@@ -1,5 +1,6 @@
 <template>
     <div class="box">
+        <span style="line-height:70px;font-size: 30px;color: #565265;margin-left: 20px">多功能展示平台</span>
         <div style="float:right;line-height:70px;display: flex">
             <LangSelect/>
             <div style="margin:0 10px">{{name}}</div>

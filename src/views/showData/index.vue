@@ -1,6 +1,6 @@
 <template>
     <div>
-        showDataqqq
+        首页
     </div>
 </template>
 
