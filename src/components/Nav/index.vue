@@ -15,9 +15,9 @@
                 <el-menu-item index="1-1" @click="goToShowdata">首页</el-menu-item>
                 <el-menu-item index="1-3" @click="goToTest">展示台</el-menu-item>
             </el-sub-menu>
-            <el-menu-item index="2">
+            <el-menu-item index="2" @click="goToSort">
                 <el-icon><icon-menu /></el-icon>
-                <template #title>Navigator Two</template>
+                <template #title >sortTable</template>
             </el-menu-item>
             <el-menu-item index="3">
                 <el-icon><document /></el-icon>
@@ -45,6 +45,9 @@ import {useRouter} from "vue-router"
     }
     let goToTest=()=>{
         router.push("/test")
+    }
+    let goToSort=()=>{
+        router.push("/sortTable")
     }
 </script>
 

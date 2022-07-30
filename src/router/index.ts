@@ -18,7 +18,12 @@ const routes: Array<RouteRecordRaw> = [
         path: 'test',
         name: 'test',
         component: ()=>import("../views/Test/index.vue"),
-
+      }
+      ,
+      {
+        path: 'sortTable',
+        name: 'sortTable',
+        component: ()=>import("../views/sortTable/index.vue"),
       }
     ]
   },
