@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div style="position: relative">
         <el-menu
                 default-active="2"
                 class="el-menu-vertical-demo"
@@ -28,6 +28,23 @@
                 <template #title>Navigator Four</template>
             </el-menu-item>
         </el-menu>
+        <div class="bottomBtn">
+<!--            <el-switch-->
+<!--                    v-model="show"-->
+<!--                    class="ml-2"-->
+<!--                    inline-prompt-->
+<!--                    style="&#45;&#45;el-switch-on-color: #13ce66; &#45;&#45;el-switch-off-color: #ff4949"-->
+<!--                    active-text="Y"-->
+<!--                    inactive-text="N"-->
+<!--            />-->
+            <el-button-group style="width: 100%">
+                <el-button  :icon="ArrowLeft" @click="isCollapse=true"></el-button>
+                <el-button @click="isCollapse=false">
+                    <el-icon class="el-icon--right"><ArrowRight /></el-icon>
+                </el-button>
+            </el-button-group>
+        </div>
+
     </div>
 </template>
 
@@ -37,8 +54,13 @@ import {
     Menu as IconMenu,
     Location,
     Setting,
+    ArrowLeft,
+    ArrowRight,
 } from '@element-plus/icons-vue'
 import {useRouter} from "vue-router"
+import {ref} from "vue"
+    let isCollapse=ref<boolean>(false)
+    let show=ref<boolean>(true)
     let router=useRouter()
     let goToShowdata=()=>{
         router.push("/showdata")
@@ -56,5 +78,13 @@ import {useRouter} from "vue-router"
         width: 200px;
         min-height: calc(100% - 70%);
     }
-
+    .bottomBtn{
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+    }
+    /deep/.el-button{
+        width: 50%;
+        height: 30px;
+    }
 </style>
