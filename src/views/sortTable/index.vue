@@ -1,5 +1,5 @@
 <template>
-<div >
+<div id="box">
     <el-table :data="tableData" style="width: 80%" id="tableSort">
         <el-table-column prop="date" label="Date" width="180" />
         <el-table-column prop="name" label="Name" width="180" />
@@ -42,7 +42,8 @@ const tableData = [
 ]
 onMounted(()=>{
     nextTick(()=>{
-        let el:HTMLElement=document.querySelector('#box #tableSort .el-table__body-wrapper .el-table__body tbody') as HTMLElement
+        let el:HTMLDivElement=document.querySelector('#box #tableSort .el-table__body-wrapper .el-table__body tbody') as HTMLDivElement
+        console.log("el",el)
         let checkboc:HTMLElement=document.querySelector("#box .el-checkbox-group") as HTMLElement
         let sortable=new Sortable(el, {
             animation: 150,
