@@ -1,0 +1,28 @@
+.login-box{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 96%;
+    height: 94%;
+    background-color:#fff;
+    border-radius: 10px;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%,-50%);
+	background-image:
+    url(https://i.loli.net/2019/10/18/buDT4YS6zUMfHst.jpg);
+  	background-size: cover;
+}
+.mianBox {
+	width: 500px;
+	height: 400px;
+	border-radius: 10px;
+	box-shadow: 2px 3px 7px rgb(0 0 0 / 20%);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+	background-color: #fff;
+	opacity: .8;
+}

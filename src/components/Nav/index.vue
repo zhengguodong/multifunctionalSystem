@@ -10,7 +10,7 @@
             <el-sub-menu index="1">
                 <template #title>
                     <el-icon><location /></el-icon>
-                    <span>Navigator One</span>
+                    <span>首页</span>
                 </template>
                 <el-menu-item index="1-1" @click="goToShowdata">首页</el-menu-item>
                 <el-menu-item index="1-3" @click="goToTest">展示台</el-menu-item>

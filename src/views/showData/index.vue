@@ -1,6 +1,10 @@
 <template>
-    <div>
-        首页
+    <div class="box">
+        <Bj/>
+        <div class="mainBox"> 
+            <h1 class="gleaming">Welcome to My Heart</h1> 
+        </div>
+        <!-- 首页
         <div style="width: 70%;margin: 50px auto">
             <editor
                     :init="{
@@ -8,19 +12,29 @@
                 height: 500
              }"
                     v-model="text"
-
             />
-        </div>
-
+        </div> -->
     </div>
 </template>
 
 <script lang="ts" setup>
     import Editor from '@tinymce/tinymce-vue'
-    import {ref} from "vue"
+    import Bj from "./Bj.vue"
+    import {ref,onMounted} from "vue"
     let text=ref<string>("")
 </script>
 
 <style scoped>
+@import url("./bj.scss");
+.box{
+    position: relative;
+}
+.mainBox{
+    position:absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    color: aliceblue;
+}
 
 </style>
