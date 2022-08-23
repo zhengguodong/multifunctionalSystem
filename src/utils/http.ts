@@ -1,5 +1,7 @@
 import axios, { AxiosResponse, AxiosRequestConfig } from 'axios';
 import { ElMessage } from 'element-plus';
+import NProgress from 'nprogress'
+import 'nprogress/nprogress.css' // 导入 nprogress
 const instance = axios.create({
     baseURL: '',
     timeout: 120 * 1000,
@@ -8,6 +10,7 @@ const instance = axios.create({
 
 // 错误处理
 const err = (error:any) => {
+
     if (error.message.includes('timeout')) {
         ElMessage({
             message: '请求超时，请刷新网页重试',
@@ -36,6 +39,7 @@ type Config = AxiosRequestConfig & {successNotice? : boolean, errorNotice? : boo
 
 // 请求拦截
 instance.interceptors.request.use((config: Config) => {
+    NProgress.start()
     // @ts-ignore
     config.headers['Access-Token'] = localStorage.getItem('token') || '';
     return config;
@@ -43,8 +47,8 @@ instance.interceptors.request.use((config: Config) => {
 
 // 响应拦截
 instance.interceptors.response.use((response: AxiosResponse) => {
+    NProgress.done()
     const config: Config = response.config;
-
     const code = Number(response.data.status);
     if (code === 200) {
         if (config && config.successNotice) {
