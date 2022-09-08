@@ -31,7 +31,7 @@
 <script lang="ts">
 import {Edit} from "@element-plus/icons-vue"
 // import language from "../../assets/icons/language.svg"
-import { useStore } from '@/store'
+import { useStore } from 'vuex'
 import { computed, defineComponent, reactive, toRefs } from 'vue'
 import { AppActionTypes } from '@/store/modules/app/action-types'
 import { useI18n } from 'vue-i18n'

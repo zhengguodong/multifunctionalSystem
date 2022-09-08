@@ -4,7 +4,7 @@
 // 导出useStore方法，返回值Store，其他地方需要用到store的一定要使用useStore()
 import { createStore, createLogger } from 'vuex'
 import { store as app, AppStore, AppState } from '@/store/modules/app'
-
+import {main} from "./modules/main/index"
 export interface RootState {
     app: AppState
 }
@@ -17,7 +17,7 @@ const plugins = debug ? [createLogger({})] : []
 export const store = createStore({
   plugins,
   modules: {
-    app
+    app,main
   }
 })
 

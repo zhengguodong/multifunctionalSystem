@@ -37,12 +37,10 @@
 <!--                    active-text="Y"-->
 <!--                    inactive-text="N"-->
 <!--            />-->
-            <el-button-group style="width: 100%">
-                <el-button  :icon="ArrowLeft" @click="isCollapse=true"></el-button>
-                <el-button @click="isCollapse=false">
-                    <el-icon class="el-icon--right"><ArrowRight /></el-icon>
+                <el-button  :icon="ArrowLeft" @click="closeBar" v-if="!show" style="width: 100%"></el-button>
+                <el-button @click="openBar" v-if="show" style="width: 100%">
+                    <el-icon class="el-icon--right" ><ArrowRight /></el-icon>
                 </el-button>
-            </el-button-group>
         </div>
 
     </div>
@@ -58,12 +56,26 @@ import {
     ArrowRight,
 } from '@element-plus/icons-vue'
 import {useRouter} from "vue-router"
-import {ref} from "vue"
+import {ref,onMounted,onUpdated} from "vue"
+import {useStore} from "vuex"
     let isCollapse=ref<boolean>(false)
+    let store = useStore()
     let show=ref<boolean>(true)
     let router=useRouter()
     let goToShowdata=()=>{
         router.push("/showdata")
+    }
+    let closeBar = async ()=> {
+        await store.dispatch('asySetShow')
+        isCollapse.value = store.getters.getShow
+        show.value = store.getters.getShow
+        console.log('s', show.value,isCollapse.value)
+    }
+    let openBar = async ()=> {
+        await store.dispatch('asySetShow')
+        isCollapse.value = store.getters.getShow
+        show.value = store.getters.getShow
+
     }
     let goToTest=()=>{
         router.push("/test")
@@ -71,6 +83,10 @@ import {ref} from "vue"
     let goToSort=()=>{
         router.push("/sortTable")
     }
+    onMounted(()=>{
+        show.value = store.getters.getShow
+        isCollapse.value = store.getters.getShow
+    })
 </script>
 
 <style scoped>
