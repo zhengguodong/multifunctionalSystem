@@ -18,7 +18,7 @@ const debug = process.env.NODE_ENV !== 'production'
 let plugins :any;
 plugins.push([createPersistedState({
   storage: window.sessionStorage,
-  reducer(val) {
+  reducer(val:any) {
     return {
       // 只储存state中的assessmentData
       assessmentData: val.assessmentData
