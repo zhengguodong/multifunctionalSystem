@@ -1,6 +1,6 @@
 <template>
     <div class="login-box">
-        <div class="mianBox" > 
+        <div class="mianBox" >
             <div class="title">
                <img :src="title" alt="" style="width: 50px; height: auto;position: relative;top: 8px;"> 多功能平台
             </div>
@@ -15,7 +15,7 @@
 </template>
 
 <script lang="ts" setup>
-import {ref} from "vue"
+import {ref,onMounted} from "vue"
 import {useRouter} from "vue-router"
 import {User} from "./interface"
 import { ElMessage } from 'element-plus'
@@ -34,6 +34,9 @@ let reset=()=>{
     form.value.userName=''
     form.value.password=''
 }
+onMounted(()=>{
+    console.log('test')
+})
 </script>
 
 <style lang="scss" scoped>
