@@ -24,7 +24,7 @@ let form=ref<User>({userName:'',password:''})
 let router=useRouter()
 let login=()=>{
     if(form.value.userName=='admin'&&form.value.password=='123123'){
-        router.push("/home")
+        router.push("/")
         ElMessage.success("登录成功")
     }else{
         ElMessage.error("Error")

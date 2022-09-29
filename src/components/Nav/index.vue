@@ -102,5 +102,11 @@ import {useStore} from "vuex"
     /deep/.el-button{
         width: 50%;
         height: 30px;
+        border-radius: 0px;
+        border-left: none;
+        border-right: none;
+    }
+    /deep/ .el-menu{
+        border: 0px;
     }
 </style>

@@ -18,7 +18,6 @@ import Nav from "../components/Nav/index.vue"
 
 watchEffect(()=>{
   let box :HTMLElement  = document.getElementById('box') as HTMLElement
-  console.log('s',box.style.width)
 })
 </script>
 <style scoped lang="scss">
