@@ -1,6 +1,6 @@
 <template>
     <div class="login-box">
-        <div class="mianBox" > 
+        <div class="mianBox" >
             <div class="title">
                <img :src="title" alt="" style="width: 50px; height: auto;position: relative;top: 8px;"> 多功能平台
             </div>
@@ -24,7 +24,7 @@ let form=ref<User>({userName:'',password:''})
 let router=useRouter()
 let login=()=>{
     if(form.value.userName=='admin'&&form.value.password=='123123'){
-        router.push("/home")
+        router.push("/")
         ElMessage.success("登录成功")
     }else{
         ElMessage.error("Error")

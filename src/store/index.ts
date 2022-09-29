@@ -6,31 +6,27 @@ import { createStore } from 'vuex'
 import createPersistedState from "vuex-persistedstate"
 import { store as app, AppStore, AppState } from '@/store/modules/app'
 import {main} from "./modules/main/index"
+import user from "./modules/user/index"
 export interface RootState {
+    user: any
     app: AppState
 }
 
-// export type Store = AppStore<Pick<RootState, 'app'>>
-// const plugins :any= [{
-//
-// }];
-// plugins.push([createPersistedState({
-//   storage: window.sessionStorage,
-//   reducer(val:any) {
-//     return {
-//       // 只储存state中的assessmentData
-//       assessmentData: val.assessmentData
-//     }
-//   }
-// })]
-// )
-export const store = createStore({
-  // plugins,
+export type Store = AppStore<Pick<RootState, 'app'>>
+export  const store = createStore({
+    plugins: [createPersistedState({
+        storage: window.sessionStorage,
+        reducer(val) {
+            return {
+                assessmentData: val.user
+            }
+        }
+    })],
   modules: {
-    app,main
+    app,main,user
   }
 })
 
-// export function useStore (): Store {
-//   return store as Store
-// }
+export function useStore (): Store {
+  return store as Store
+}

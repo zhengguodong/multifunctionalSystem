@@ -2,9 +2,16 @@ import { createRouter, createWebHistory, RouteRecordRaw } from 'vue-router'
 import Home from '../views/Home.vue'
 import NProgress from 'nprogress'
 import 'nprogress/nprogress.css'
-const routes: Array<RouteRecordRaw> = [
+export const whiteRoutes: Array<RouteRecordRaw> = [
   {
-    path: '/home',
+    path: '/login',
+    name: 'login',
+    component: () => import(/* webpackChunkName: "about" */ '../views/Login/index.vue')
+  }
+]
+export const mainRoutes: Array<RouteRecordRaw> = [
+  {
+    path: '/',
     name: 'Home',
     component: Home,
     redirect:'/showdata',
@@ -27,24 +34,11 @@ const routes: Array<RouteRecordRaw> = [
         component: ()=>import("../views/sortTable/index.vue"),
       }
     ]
-  },
-  {
-    path: '/',
-    name: 'login',
-    component: () => import(/* webpackChunkName: "about" */ '../views/Login/index.vue')
   }
 ]
 
 const router = createRouter({
-  history: createWebHistory(process.env.BASE_URL),
-  routes
-})
-router.beforeEach((to, from, next) => {
-  NProgress.start()
-  next()
-})
-
-router.afterEach(() => {
-  NProgress.done()
+  history: createWebHistory(),
+  routes:[...whiteRoutes,...mainRoutes]
 })
 export default router

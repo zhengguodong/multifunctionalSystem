@@ -15,7 +15,7 @@ import {useRouter} from "vue-router"
 let name=ref<string>("admin")
 let router=useRouter()
 let out=()=>{
-    router.push("/")
+    router.push("/login")
 }
 </script>
 
@@ -44,7 +44,7 @@ let out=()=>{
         // float:right;
         // line-height:70px;
         color: #cdc8e0;
-       
+
     }
 }
 </style>
