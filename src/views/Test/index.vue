@@ -91,6 +91,8 @@
             display: inline-block;
             float: right;
             margin:10px;
+            text-align: center;
+            vertical-align: center;
         }
         .midTop{
             width: 15%;

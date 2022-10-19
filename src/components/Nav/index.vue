@@ -1,7 +1,7 @@
 <template>
     <div style="position: relative">
         <el-menu
-                default-active="2"
+                default-active="1-1"
                 class="el-menu-vertical-demo"
                 :collapse="isCollapse"
                 @open="handleOpen"
